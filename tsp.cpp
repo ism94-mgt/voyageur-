@@ -3,17 +3,17 @@
 #include <array>
 #include <string>
 
-const int NMAX = 100;
+const int MAX = 100;
 
 struct Ville
 {
-    int numero;
+    int num;
     double x;
     double y;
 };
 
-using TabVilles = std::array<Ville, NMAX>;
-using MatriceDistances = std::array<std::array<int, NMAX>, NMAX>;
+using Tabvilles = std::array<Ville, NMAX>;
+using Matricedistances = std::array<std::array<int, NMAX>, NMAX>;
 using Tournee = std::array<int, NMAX>;
 
 struct InstanceTSP
