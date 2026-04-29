@@ -25,7 +25,6 @@ void afficher_instance(const InstanceTSP & instance)
     std::cout << "Nom : " << instance.nom << std::endl;
     std::cout << "Nombre de villes : " << instance.nb_villes << std::endl;
     std::cout << "Type de distance : " << instance.type_distance << std::endl;
-
     std::cout << "Villes :" << std::endl;
 
     for (int i = 0; i < instance.nb_villes; ++i)
@@ -33,5 +32,15 @@ void afficher_instance(const InstanceTSP & instance)
         std::cout << instance.villes[i].num << " "
                   << instance.villes[i].x << " "
                   << instance.villes[i].y << std::endl;
+    }
+    std::cout << "Matrice des distances :" << std::endl;
+      for (int i = 0; i < instance.nb_villes; ++i)
+    {
+        for (int j = 0; j < instance.nb_villes; ++j)
+        {
+            std::cout << instance.distances[i][j] << " ";
+        }
+
+        std::cout << std::endl;
     }
 }
