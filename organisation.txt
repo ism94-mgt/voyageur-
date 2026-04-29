@@ -40,4 +40,22 @@ On veut aussi séparer le code en plusieurs fichiers : tsp.h pour les structures
 
 Notre première étape sera de lire correctement les fichiers .tsp comme att48 et bayg29. Ensuite, on testera une solution naïve, puis un algorithme glouton du plus proche voisin.
 
-changer de array utiliser autre tabe=leau
+à faire :
+
+- changer de array utiliser autre tableau :
+double distance [10][10];
+double **dist;
+int dim = 0;
+...
+dim = 10;
+dist = new double*[dim];
+for (int i = 0; i<dim; ++i)
+{
+    dist[i] = new double[dim];
+    for (int j = 0; j<dim; ++j)
+    {
+        dist[i][j] = 0;
+    }
+}
+
+- finir le prog avec un glouton
