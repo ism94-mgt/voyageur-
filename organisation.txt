@@ -1,35 +1,36 @@
 
 On ne veut pas tout mettre dans main.cpp. On va séparer :
-- les structures de données
-- les fonctions qui manipulent ces structures
-- les algorithmes
-- le programme principal
+- les structures de données ;
+- les fonctions qui manipulent ces structures ;
+- les algorithmes ;
+- le programme principals 
 
-Par exemple :
+par exemple :
 main.cpp
 tsp.h
 tsp.cpp
 algorithmes.h
 algorithmes.cpp
 
-(tsp.h contient les structures et les prototypes.
+tsp.h contient les structures et les prototypes.
 tsp.cpp contient les fonctions liées aux données.
 algorithmes.h et algorithmes.cpp contiendront les méthodes de résolution.
 main.cpp servira seulement à lancer le programme.
-On sépare la représentation du problème de sa résolution.)
+On sépare la représentation du problème de sa résolution.
 
 tsp.h:
 
 Ville représente une ville avec son numéro et ses coordonnées.
 InstanceTSP représente tout le problème : nom, nombre de villes, type de distance, villes et distances.
-Solution représente la tournée trouvée : l'ordre des villes et sa longueur.
-On stocke toujours les distances dans une matrice, même si elles viennent des coordonnées. Les algorithmes utiliseront toujours instance.distances[i][j].
+Solution représente la tournée trouvée : l’ordre des villes et sa longueur.
+On stocke toujours les distances dans une matrice, même si elles viennent des coordonnées.les algorithmes utiliseront toujours instance.distances[i][j].
 
 
-Pour commencer, on fera une solution naïve : visiter les villes dans l'ordre du fichier.
+Pour commencer, on fera une solution naïve : visiter les villes dans l’ordre du fichier.
 Ensuite, on fera un algorithme glouton du plus proche voisin.
 À chaque étape, il choisit la ville non visitée la plus proche.
 
+ On a commencé par modéliser le problème et organiser le projet.
 
 On a identifié les données principales : les villes, les coordonnées, les distances, l’instance TSP et la solution.
 
@@ -39,3 +40,4 @@ On veut aussi séparer le code en plusieurs fichiers : tsp.h pour les structures
 
 Notre première étape sera de lire correctement les fichiers .tsp comme att48 et bayg29. Ensuite, on testera une solution naïve, puis un algorithme glouton du plus proche voisin.
 
+changer de array utiliser autre tabe=leau
