@@ -3,7 +3,7 @@
 #include <array>
 #include <string>
 
-const int MAX = 100;
+const int VMAX = 100;
 
 struct Ville
 {
