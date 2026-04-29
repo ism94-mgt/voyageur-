@@ -12,9 +12,9 @@ struct Ville
     double y;
 };
 
-using Tabvilles = std::array<Ville, NMAX>;
-using Matricedistances = std::array<std::array<int, NMAX>, NMAX>;
-using Tournee = std::array<int, NMAX>;
+using TabVilles = std::array<Ville, VMAX>;
+using MatriceDistances = std::array<std::array<int, VMAX>, VMAX>;
+using Tournee = std::array<int, VMAX>;
 
 struct InstanceTSP
 {
