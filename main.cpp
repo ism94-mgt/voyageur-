@@ -21,7 +21,7 @@ void traiter_fichier(std::string nom_fichier)
         std::cout << std::endl;
         std::cout << "Algorithme glouton :" << std::endl;
 
-        glouton_plus_proche_voisin(instance, solution, 0);
+        methode_glouton(instance, solution, 0);
         afficher_solution(instance, solution);
     }
     else
