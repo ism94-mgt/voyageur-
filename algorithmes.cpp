@@ -50,7 +50,7 @@ void methode_glouton(const InstanceTSP & instance, Solution & solution, int depa
         {
             if (!visite[ville])
             {
-                double distance = instance.distances[ville_courante][ville];
+                double distance = distance_entre_villes(instance, ville_courante, ville);
 
                 if (meilleure_ville == -1 || distance < meilleure_distance)
                 {
@@ -68,7 +68,7 @@ void methode_glouton(const InstanceTSP & instance, Solution & solution, int depa
         ville_courante = meilleure_ville;
     }
 
-    solution.longueur = solution.longueur + instance.distances[ville_courante][depart];
+    solution.longueur = solution.longueur + distance_entre_villes(instance, ville_courante, depart);
 
     delete[] visite;
 }

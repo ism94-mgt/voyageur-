@@ -2,6 +2,13 @@
 
 #include "tsp.h"
 
+struct Solution
+{
+    int * ordre;
+    int nb_villes;
+    double longueur;
+};
+
 void initialiser_solution(Solution & solution);
 
 void liberer_solution(Solution & solution);
