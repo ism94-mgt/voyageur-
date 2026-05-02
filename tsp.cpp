@@ -211,19 +211,12 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
 
 void afficher_instance(const InstanceTSP & instance)
 {
-    std::cout << std::endl;
-    std::cout << "==================================================" << std::endl;
-    std::cout << "RESUME DE L'INSTANCE" << std::endl;
-    std::cout << "==================================================" << std::endl;
-
-    std::cout << "Nom              : " << instance.nom << std::endl;
+    std::cout << "Nom : " << instance.nom << std::endl;
     std::cout << "Nombre de villes : " << instance.nb_villes << std::endl;
     std::cout << "Type de distance : " << instance.type_distance << std::endl;
 
     std::cout << std::endl;
-    std::cout << "---------------- PREMIERES VILLES ----------------" << std::endl;
-    std::cout << "Num\tX\tY" << std::endl;
-    std::cout << "--------------------------------------------------" << std::endl;
+    std::cout << "Premieres villes :" << std::endl;
 
     int limite_villes = instance.nb_villes;
 
@@ -234,8 +227,8 @@ void afficher_instance(const InstanceTSP & instance)
 
     for (int i = 0; i < limite_villes; ++i)
     {
-        std::cout << instance.villes[i].num << "\t"
-                  << instance.villes[i].x << "\t"
+        std::cout << instance.villes[i].num << " "
+                  << instance.villes[i].x << " "
                   << instance.villes[i].y << std::endl;
     }
 
@@ -245,49 +238,27 @@ void afficher_instance(const InstanceTSP & instance)
     }
 
     std::cout << std::endl;
-    std::cout << "------------- APERCU MATRICE DISTANCES -----------" << std::endl;
+    std::cout << "Debut de la matrice des distances :" << std::endl;
 
     int limite = instance.nb_villes;
 
-    if (limite > 8)
+    if (limite > 10)
     {
-        limite = 8;
+        limite = 10;
     }
-
-    std::cout << "\t";
-
-    for (int j = 0; j < limite; ++j)
-    {
-        std::cout << j << "\t";
-    }
-
-    std::cout << std::endl;
-
-    std::cout << "\t";
-
-    for (int j = 0; j < limite; ++j)
-    {
-        std::cout << "--------";
-    }
-
-    std::cout << std::endl;
 
     for (int i = 0; i < limite; ++i)
     {
-        std::cout << i << " |\t";
-
         for (int j = 0; j < limite; ++j)
         {
-            std::cout << distance_entre_villes(instance, i, j) << "\t";
+            std::cout << distance_entre_villes(instance, i, j) << " ";
         }
 
         std::cout << std::endl;
     }
 
-    if (instance.nb_villes > 8)
+    if (instance.nb_villes > 10)
     {
         std::cout << "... matrice complete non affichee" << std::endl;
     }
-
-    std::cout << "==================================================" << std::endl;
 }
