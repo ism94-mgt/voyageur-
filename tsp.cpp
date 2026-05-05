@@ -123,6 +123,7 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
 
     if (!fichier)
     {
+        std::cout<<"Problème lors de l'ouverture du fichier."<<std::endl;
         return false;
     }
 
@@ -201,7 +202,7 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
         }
         else if (mot == "EOF")
         {
-            break;
+            //break or continue or rien?
         }
     }
 
@@ -247,11 +248,22 @@ void afficher_instance(const InstanceTSP & instance)
         limite = 10;
     }
 
+
+    std::cout << "\t";
+    for (int j = 0; j < limite; ++j)
+    {
+        std::cout << j << "\t";
+    }
+    std::cout << std::endl;
+
+
     for (int i = 0; i < limite; ++i)
     {
+        std::cout << i << "\t";
+
         for (int j = 0; j < limite; ++j)
         {
-            std::cout << distance_entre_villes(instance, i, j) << " ";
+            std::cout << distance_entre_villes(instance, i, j) << "\t";
         }
 
         std::cout << std::endl;
