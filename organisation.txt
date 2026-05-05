@@ -58,4 +58,4 @@ for (int i = 0; i<dim; ++i)
     }
 }
 
-- finir le prog avec un glouton
+méthode glouton partiellement fini, il reste quelque modification a ajouter 
