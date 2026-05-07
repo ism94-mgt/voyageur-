@@ -76,7 +76,7 @@ void methode_glouton(const InstanceTSP & instance, Solution & solution, int depa
 
 void afficher_solution(const Solution & solution)
 {
-    std::cout << "Tournee trouvee :" << std::endl;
+    std::cout << "Solution trouvee :" << std::endl;
 
     for (int i = 0; i < solution.nb_villes; ++i)
     {

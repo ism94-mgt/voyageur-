@@ -21,8 +21,7 @@ void traiter_fichier(std::string nom_fichier)
 
         std::cout << std::endl;
         std::cout << "Algorithme glouton :" << std::endl;
-
-        methode_glouton(instance, solution, 0);
+        methode_glouton(instance, solution,0);
         afficher_solution(solution);
     }
     else
@@ -44,3 +43,18 @@ int main()
 
     return 0;
 }
+
+/*
+double meilleure_longueur = -1;
+int meilleur_depart = 0;
+
+for (int depart = 0; depart < instance.nb_villes; ++depart)
+{
+    Solution temp;
+    initialiser_solution(temp);
+
+    methode_glouton(instance, temp, depart);
+
+    std::cout << "Depart " << depart
+              << " -> longueur : "
+            */
