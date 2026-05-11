@@ -40,7 +40,6 @@ for (int depart = 0; depart < instance.nb_villes; ++depart)
     {
         meilleure_longueur = temp.longueur;
 
-        liberer_solution(solution);
 
         solution.nb_villes = temp.nb_villes;
         solution.longueur = temp.longueur;
@@ -87,4 +86,15 @@ int main()
 
     return 0;
 }
+/*int main(int argc, char** argv)
+{
+    if (argc < 2)
+    {
+        std::cout << "Usage: " << argv[0] << " fichier.tsp" << std::endl;
+        return 1;
+    }
 
+    traiter_fichier(argv[1]);
+
+    return 0;
+}*/
