@@ -35,7 +35,7 @@ void traiter_fichier(std::string nom_fichier)
 
 int main(int argc, char** argv)
 {
-    //traiter_fichier("bayg29.tsp");
+    traiter_fichier("bayg29.tsp");
 
     std::cout << std::endl;
 
@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 
     //traiter_fichier("gr24.tsp");
 
-    traiter_fichier("ch150.tsp");
+    //traiter_fichier("ch150.tsp");
 
     return 0;
 }
