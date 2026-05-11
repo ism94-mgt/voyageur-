@@ -123,7 +123,7 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
 
     if (!fichier)
     {
-        std::cout<<"Problème lors de l'ouverture du fichier."<<std::endl;
+       
         return false;
     }
 

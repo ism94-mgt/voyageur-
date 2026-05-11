@@ -65,7 +65,7 @@ afficher_solution(solution);
     }
     else
     {
-        std::cout << "Erreur : impossible d'ouvrir " << nom_fichier << std::endl;
+        std::cout << "Problème lors de l'ouverture du fichier. " << nom_fichier << std::endl;
     }
 
     liberer_solution(solution);
