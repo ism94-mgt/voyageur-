@@ -20,7 +20,7 @@ void traiter_fichier(std::string nom_fichier)
         afficher_instance(instance);
 
         std::cout << std::endl;
-        std::cout << "Algorithme glouton :" << std::endl;
+        std::cout << "Algorithme glouton " << std::endl;
         methode_glouton(instance, solution,0);
         afficher_solution(solution);
     }
@@ -33,7 +33,7 @@ void traiter_fichier(std::string nom_fichier)
     liberer_instance(instance);
 }
 
-int main()
+int main(int argc, char** argv)
 {
     //traiter_fichier("att48.tsp");
 
