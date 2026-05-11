@@ -1,0 +1,16 @@
+# ninja log v7
+24	508	7996985255219151	CMakeFiles/voyageur-de-commerce.out.dir/main.cpp.obj	622e420eabe6911d
+6	769	7996980753333026	CMakeFiles/voyageur-de-commerce.out.dir/algorithmes.cpp.obj	9c6022240643fcda
+24	773	7996984663653732	CMakeFiles/voyageur-de-commerce.out.dir/tsp.cpp.obj	8aa197b3561327bd
+509	645	7996985260045588	voyageur-de-commerce.out.exe	4fa279fb802edb67
+83	7157	7998425074449025	CMakeFiles/voyageur-de-commerce.out.dir/tsp.cpp.obj	8aa197b3561327bd
+7159	7584	7998425145212851	voyageur-de-commerce.out.exe	4fa279fb802edb67
+12	1177	7998431506885019	CMakeFiles/voyageur-de-commerce.out.dir/main.cpp.obj	622e420eabe6911d
+1179	1495	7998431518549234	voyageur-de-commerce.out.exe	4fa279fb802edb67
+34	918	7998431693093146	CMakeFiles/voyageur-de-commerce.out.dir/main.cpp.obj	622e420eabe6911d
+919	1119	7998431701942871	voyageur-de-commerce.out.exe	4fa279fb802edb67
+32	1037	7998442495296006	CMakeFiles/voyageur-de-commerce.out.dir/algorithmes.cpp.obj	9c6022240643fcda
+41	1081	7998442495386009	CMakeFiles/voyageur-de-commerce.out.dir/main.cpp.obj	622e420eabe6911d
+1081	1294	7998442505789057	voyageur-de-commerce.out.exe	4fa279fb802edb67
+39	710	7998443233976698	CMakeFiles/voyageur-de-commerce.out.dir/main.cpp.obj	622e420eabe6911d
+711	920	7998443240707841	voyageur-de-commerce.out.exe	4fa279fb802edb67
