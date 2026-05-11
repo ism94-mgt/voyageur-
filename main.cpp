@@ -33,7 +33,7 @@ void traiter_fichier(std::string nom_fichier)
     liberer_instance(instance);
 }
 
-int main(int argc, char** argv)
+int main()
 {
     //traiter_fichier("bayg29.tsp");
 
