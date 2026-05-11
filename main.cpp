@@ -18,11 +18,51 @@ void traiter_fichier(std::string nom_fichier)
      if (lire_instance(nom_fichier, instance))
     {
         afficher_instance(instance);
+std::cout << std::endl;
+std::cout << "Algorithme glouton :" << std::endl;
 
-        std::cout << std::endl;
-        std::cout << "Algorithme glouton " << std::endl;
-        methode_glouton(instance, solution,0);
-        afficher_solution(solution);
+double meilleure_longueur = -1;
+int meilleur_depart = 0;
+
+for (int depart = 0; depart < instance.nb_villes; ++depart)
+{
+    Solution temp;
+    initialiser_solution(temp);
+
+    methode_glouton(instance, temp, depart);
+
+    std::cout << "Depart " << depart
+              << " -> longueur : "
+              << temp.longueur << std::endl;
+
+    if (meilleure_longueur == -1 ||
+        temp.longueur < meilleure_longueur)
+    {
+        meilleure_longueur = temp.longueur;
+
+        liberer_solution(solution);
+
+        solution.nb_villes = temp.nb_villes;
+        solution.longueur = temp.longueur;
+
+        solution.ordre = new int[temp.nb_villes];
+
+        for (int i = 0; i < temp.nb_villes; ++i)
+        {
+            solution.ordre[i] = temp.ordre[i];
+        }
+
+        meilleur_depart = depart;
+    }
+
+    liberer_solution(temp);
+}
+
+std::cout << std::endl;
+std::cout << "Meilleur depart est a la ville : "
+          << meilleur_depart << std::endl;
+
+afficher_solution(solution);
     }
     else
     {
@@ -48,17 +88,3 @@ int main()
     return 0;
 }
 
-/*
-double meilleure_longueur = -1;
-int meilleur_depart = 0;
-
-for (int depart = 0; depart < instance.nb_villes; ++depart)
-{
-    Solution temp;
-    initialiser_solution(temp);
-
-    methode_glouton(instance, temp, depart);
-
-    std::cout << "Depart " << depart
-              << " -> longueur : "
-            */
