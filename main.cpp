@@ -78,11 +78,11 @@ int main()
 
     std::cout << std::endl;
 
-    traiter_fichier("att48.tsp");
+    //traiter_fichier("att48.tsp");
 
     //traiter_fichier("gr24.tsp");
 
-    //traiter_fichier("ch150.tsp");
+    traiter_fichier("ch150.tsp");
 
     return 0;
 }
