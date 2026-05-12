@@ -133,7 +133,7 @@ int main()
 
     //traiter_fichier("gr24.tsp");
 
-    traiter_fichier("ch150.tsp");
+    //traiter_fichier("ch150.tsp");
 
     return 0;
 }
@@ -142,10 +142,7 @@ int main()
 {
     if (argc < 2)
     {
-        std::cout << "Usage : "
-                  << argv[0]
-                  << " fichier1.tsp fichier2.tsp ..."
-                  << std::endl;
+        std::cout << "Usage : " << argv[0] << " fichier1.tsp fichier2.tsp ..."<< std::endl;
 
         return 1;
     }
