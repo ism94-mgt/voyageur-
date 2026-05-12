@@ -32,3 +32,4 @@ void afficher_instance(const InstanceTSP & instance);
 double distance_entre_villes(const InstanceTSP & instance, int i, int j);
 
 void modifier_distance(InstanceTSP & instance, int i, int j, double distance);
+
