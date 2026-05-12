@@ -99,15 +99,13 @@ void traiter_fichier(std::string nom_fichier)
 
         std::cout << std::endl;
 
-        std::cout << "Meilleur depart glouton : "
-                  << meilleur_depart << std::endl;
+        std::cout << "Meilleur depart glouton : "<< meilleur_depart << std::endl;
 
         afficher_solution(solution);
 
         std::cout << std::endl;
 
-        std::cout << "Meilleur depart OR-opt : "
-                  << meilleur_depart_or_opt << std::endl;
+        std::cout << "Solution OR-opt obtenue depuis le depart :"<< meilleur_depart_or_opt << std::endl;
 
         afficher_solution(solution_or_opt);
     }
@@ -129,7 +127,7 @@ int main()
 
     std::cout << std::endl;
 
-    //traiter_fichier("att48.tsp");
+    traiter_fichier("att48.tsp");
 
     //traiter_fichier("gr24.tsp");
 
