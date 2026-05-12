@@ -82,7 +82,7 @@ int main()
 
     //traiter_fichier("gr24.tsp");
 
-    //traiter_fichier("ch150.tsp");
+    traiter_fichier("ch150.tsp");
 
     return 0;
 }
