@@ -65,7 +65,7 @@ afficher_solution(solution);
     }
     else
     {
-        std::cout << "Problème lors de l'ouverture du fichier. " << nom_fichier << std::endl;
+        std::cout << "Problème lors de l'ouverture du fichier." << nom_fichier << std::endl;
     }
 
     liberer_solution(solution);
@@ -74,11 +74,11 @@ afficher_solution(solution);
 
 int main()
 {
-    //traiter_fichier("bayg29.tsp");
+    traiter_fichier("bayg29.tsp");
 
     std::cout << std::endl;
 
-    traiter_fichier("att48.tsp");
+    //traiter_fichier("att48.tsp");
 
     //traiter_fichier("gr24.tsp");
 
