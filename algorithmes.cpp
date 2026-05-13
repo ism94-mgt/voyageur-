@@ -119,11 +119,9 @@ void amelioration_or_opt(const InstanceTSP & instance, Solution & solution)
             int ville_next = solution.ordre[next];
 
             double cout_actuel =
-                distance_entre_villes(instance, ville_prev, ville_i) +
-                distance_entre_villes(instance, ville_i, ville_next);
+                distance_entre_villes(instance, ville_prev, ville_i) + distance_entre_villes(instance, ville_i, ville_next);
 
-            double cout_sans_i =
-                distance_entre_villes(instance, ville_prev, ville_next);
+            double cout_sans_i = distance_entre_villes(instance, ville_prev, ville_next);
 
             for (int k = 0; k < n && !amelioration; ++k)
             {
