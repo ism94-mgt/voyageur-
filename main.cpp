@@ -124,15 +124,13 @@ void traiter_fichier(std::string nom_fichier)
 int main()
 {
     //traiter_fichier("bayg29.tsp");
-    //std::cout << std::endl;
 
     traiter_fichier("att48.tsp");
-    //std::cout << std::endl;
 
     //traiter_fichier("gr24.tsp");
-    //std::cout << std::endl;
 
     //traiter_fichier("ch150.tsp");
+    
     std::cout << std::endl;
 
     return 0;
