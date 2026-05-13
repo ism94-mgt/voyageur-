@@ -120,7 +120,7 @@ void traiter_fichier(std::string nom_fichier)
 
     liberer_instance(instance);
 }
-
+/*
 int main()
 {
     //traiter_fichier("bayg29.tsp");
@@ -135,8 +135,8 @@ int main()
 
     return 0;
 }
-
-/*int main(int argc, char** argv)
+*/
+int main(int argc, char** argv)
 {
     if (argc < 2)
     {
@@ -153,4 +153,4 @@ int main()
     }
 
     return 0;
-}*/
+}
