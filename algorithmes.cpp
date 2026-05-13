@@ -138,7 +138,7 @@ void amelioration_or_opt(const InstanceTSP & instance, Solution & solution)
 
                 double delta = cout_sans_i - cout_actuel + cout_insertion;
 
-                if (delta < -1e-10)
+                if (delta < 0)
                 {
                     int * nouvel_ordre = new int[n];
 
