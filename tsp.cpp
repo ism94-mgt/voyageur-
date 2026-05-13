@@ -61,6 +61,7 @@ void allouer_instance(InstanceTSP & instance, int nb_villes)
         instance.distances[i] = 0;
     }
 }
+
 double distance_entre_villes(const InstanceTSP & instance, int i, int j)
 {
     return instance.distances[i * instance.nb_villes + j];
