@@ -80,21 +80,7 @@ double distance_euclidienne(Ville a, Ville b)
     return std::sqrt(dx * dx + dy * dy);
 }
 
-double distance_att(Ville a, Ville b)
-{
-    double dx = a.x - b.x;
-    double dy = a.y - b.y;
 
-    double rij = std::sqrt((dx * dx + dy * dy) / 10.0);
-    int tij = std::round(rij);
-
-    if (tij < rij)
-    {
-        return tij + 1;
-    }
-
-    return tij;
-}
 
 void calculer_distances_depuis_coordonnees(InstanceTSP & instance)
 {
@@ -106,14 +92,11 @@ void calculer_distances_depuis_coordonnees(InstanceTSP & instance)
             {
                 modifier_distance(instance, i, j, 0);
             }
-            else if (instance.type_distance == "ATT")
-            {
-                modifier_distance(instance, i, j, distance_att(instance.villes[i], instance.villes[j]));
-            }
-            else
+            else 
             {
                 modifier_distance(instance, i, j, distance_euclidienne(instance.villes[i], instance.villes[j]));
             }
+            
         }
     }
 }
