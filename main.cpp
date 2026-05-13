@@ -99,20 +99,27 @@ void traiter_fichier(std::string nom_fichier)
 
         std::cout << std::endl;
 
+<<<<<<< HEAD
         std::cout << "Meilleur depart glouton : "<< meilleur_depart << std::endl;
+=======
+        std::cout << "Meilleur depart glouton : " << meilleur_depart << std::endl;
+>>>>>>> 123b1fbb4f6d70f6225817e6d0925b9f4c7864b1
 
         afficher_solution(solution);
 
         std::cout << std::endl;
 
+<<<<<<< HEAD
         std::cout << "Solution OR-opt obtenue depuis le depart :"<< meilleur_depart_or_opt << std::endl;
+=======
+        std::cout << "Meilleur depart OR-opt : " << meilleur_depart_or_opt << std::endl;
+>>>>>>> 123b1fbb4f6d70f6225817e6d0925b9f4c7864b1
 
         afficher_solution(solution_or_opt);
     }
     else
     {
-        std::cout << "Probleme lors de l'ouverture du fichier : "
-                  << nom_fichier << std::endl;
+        std::cout << "Probleme lors de l'ouverture du fichier : " << nom_fichier << std::endl;
     }
 
     liberer_solution(solution);
@@ -124,14 +131,20 @@ void traiter_fichier(std::string nom_fichier)
 int main()
 {
     //traiter_fichier("bayg29.tsp");
+    //std::cout << std::endl;
 
-    std::cout << std::endl;
-
+<<<<<<< HEAD
     traiter_fichier("att48.tsp");
+=======
+    //traiter_fichier("att48.tsp");
+    //std::cout << std::endl;
+>>>>>>> 123b1fbb4f6d70f6225817e6d0925b9f4c7864b1
 
     //traiter_fichier("gr24.tsp");
+    //std::cout << std::endl;
 
-    //traiter_fichier("ch150.tsp");
+    traiter_fichier("ch150.tsp");
+    std::cout << std::endl;
 
     return 0;
 }
