@@ -179,8 +179,7 @@ void amelioration_or_opt(const InstanceTSP & instance, Solution & solution)
 
                     solution.ordre = nouvel_ordre;
 
-                    solution.longueur =
-                        solution.longueur + delta;
+                    solution.longueur = solution.longueur + delta;
 
                     amelioration = true;
                 }

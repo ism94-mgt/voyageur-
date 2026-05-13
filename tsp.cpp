@@ -123,7 +123,6 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
 
     if (!fichier)
     {
-       
         return false;
     }
 
@@ -248,14 +247,12 @@ void afficher_instance(const InstanceTSP & instance)
         limite = 10;
     }
 
-
     std::cout << "\t";
     for (int j = 0; j < limite; ++j)
     {
         std::cout << j << "\t";
     }
     std::cout << std::endl;
-
 
     for (int i = 0; i < limite; ++i)
     {
