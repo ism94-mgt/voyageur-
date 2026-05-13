@@ -115,7 +115,7 @@ void amelioration_or_opt(const InstanceTSP & instance, Solution & solution)
             int next = (i + 1) % n;
 
             int ville_prev = solution.ordre[prev];
-            int ville_i    = solution.ordre[i];
+            int ville_i = solution.ordre[i];
             int ville_next = solution.ordre[next];
 
             double cout_actuel = distance_entre_villes(instance, ville_prev, ville_i) + distance_entre_villes(instance, ville_i, ville_next);
@@ -129,16 +129,14 @@ void amelioration_or_opt(const InstanceTSP & instance, Solution & solution)
                     continue;
                 }
 
-                int ville_k      = solution.ordre[k];
+                int ville_k = solution.ordre[k];
                 int ville_k_next = solution.ordre[(k + 1) % n];
 
-                double cout_insertion =
-                    distance_entre_villes(instance, ville_k, ville_i) +
-                    distance_entre_villes(instance, ville_i, ville_k_next) -
-                    distance_entre_villes(instance, ville_k, ville_k_next);
+                double cout_insertion = distance_entre_villes(instance, ville_k, ville_i) +
+                                        distance_entre_villes(instance, ville_i, ville_k_next) -
+                                        distance_entre_villes(instance, ville_k, ville_k_next);
 
-                double delta =
-                    cout_sans_i - cout_actuel + cout_insertion;
+                double delta = cout_sans_i - cout_actuel + cout_insertion;
 
                 if (delta < -1e-10)
                 {
