@@ -1,7 +1,14 @@
 #include <iostream>
 #include "tsp.h"
 #include "algorithmes.h"
-
+/*
+But : traiter complètement un fichier TSP.
+La fonction lit d'abord l'instance contenue dans le fichier.
+Ensuite, elle teste l'algorithme glouton en prenant chaque ville comme ville de départ.
+Elle garde la meilleure solution gloutonne trouvée.
+Puis elle applique OR-opt pour essayer d'améliorer les solutions obtenues.
+À la fin, elle affiche la meilleure solution gloutonne et la meilleure solution améliorée.
+*/
 void traiter_fichier(std::string nom_fichier)
 {
     InstanceTSP instance;
@@ -125,7 +132,7 @@ int main(int argc, char** argv)
 {
     if (argc < 2)
     {
-        std::cout << argv[0] << std::endl;
+         std::cout << "Usage : " << argv[0] << " fichier_instance.tsp" << std::endl;
 
         return 1;
     }

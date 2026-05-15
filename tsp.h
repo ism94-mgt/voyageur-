@@ -14,7 +14,7 @@ struct InstanceTSP
     std::string nom;
     int nb_villes;
     std::string type_distance;
-
+    bool possede_coordonnees;
     Ville * villes;
     double * distances;
 };

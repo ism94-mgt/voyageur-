@@ -20,7 +20,13 @@ void liberer_solution(Solution & solution)
     solution.longueur = 0;
 }
 
-
+/*
+But : construire une première solution au problème du voyageur de commerce avec une méthode gloutonne.
+On choisit une ville de départ, puis on ajoute à chaque étape la ville non visitée la plus proche.
+Cette méthode est rapide et donne une solution correcte, mais pas forcément la meilleure possible.
+La longueur totale est calculée en additionnant les distances entre les villes successives,
+puis en ajoutant le retour vers la ville de départ pour fermer le cycle.
+*/
 void methode_glouton(const InstanceTSP & instance, Solution & solution, int depart)
 {
     int n = instance.nb_villes;
@@ -98,7 +104,13 @@ void afficher_solution(const Solution & solution)
     std::cout << "Longueur totale : " << solution.longueur << std::endl;
 }
 
-
+/*
+But : améliorer une solution déjà existante avec la méthode OR-opt.
+Le principe est de prendre une ville du chemin et de tester si la déplacer à une autre position
+permet de diminuer la longueur totale de la tournée.
+Si un déplacement améliore la solution, on le garde et on recommence jusqu'à ne plus trouver d'amélioration.
+Cette méthode permet souvent d'obtenir une meilleure solution que le glouton seul.
+*/
 void amelioration_or_opt(const InstanceTSP & instance, Solution & solution)
 {
     int n = solution.nb_villes;

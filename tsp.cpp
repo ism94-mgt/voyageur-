@@ -9,6 +9,7 @@ void initialiser_instance(InstanceTSP & instance)
     instance.nom = "";
     instance.nb_villes = 0;
     instance.type_distance = "";
+    instance.possede_coordonnees = false;
     instance.villes = nullptr;
     instance.distances = nullptr;
 }
@@ -28,10 +29,16 @@ void liberer_instance(InstanceTSP & instance)
     instance.nom = "";
     instance.nb_villes = 0;
     instance.type_distance = "";
+    instance.possede_coordonnees = false;
     instance.villes = nullptr;
     instance.distances = nullptr;
 }
-
+/*
+But : allouer la mémoire nécessaire pour stocker une instance TSP.
+On crée un tableau pour les villes et un tableau pour la matrice des distances.
+La matrice des distances est stockée dans un tableau 1D de taille nb_villes * nb_villes.
+Chaque case représente la distance entre deux villes.
+*/
 void allouer_instance(InstanceTSP & instance, int nb_villes)
 {
     if (instance.villes != nullptr)
@@ -45,6 +52,7 @@ void allouer_instance(InstanceTSP & instance, int nb_villes)
     }
 
     instance.nb_villes = nb_villes;
+    instance.possede_coordonnees = false;
 
     instance.villes = new Ville[nb_villes];
     instance.distances = new double[nb_villes * nb_villes];
@@ -62,11 +70,18 @@ void allouer_instance(InstanceTSP & instance, int nb_villes)
     }
 }
 
+/*
+But : récupérer la distance entre deux villes.
+Même si les distances représentent une matrice, elles sont stockées dans un tableau 1D.
+La formule i * nb_villes + j permet d'accéder à la case correspondant à la distance entre i et j.
+*/
 double distance_entre_villes(const InstanceTSP & instance, int i, int j)
 {
     return instance.distances[i * instance.nb_villes + j];
 }
-
+/*But : modifier une distance dans la matrice des distances.
+Cette fonction sert à remplir la matrice, soit avec les distances lues dans le fichier,
+soit avec les distances calculées à partir des coordonnées.*/
 void modifier_distance(InstanceTSP & instance, int i, int j, double distance)
 {
     instance.distances[i * instance.nb_villes + j] = distance;
@@ -80,8 +95,6 @@ double distance_euclidienne(Ville a, Ville b)
     return std::sqrt(dx * dx + dy * dy);
 }
 
-
-
 void calculer_distances_depuis_coordonnees(InstanceTSP & instance)
 {
     for (int i = 0; i < instance.nb_villes; ++i)
@@ -92,15 +105,21 @@ void calculer_distances_depuis_coordonnees(InstanceTSP & instance)
             {
                 modifier_distance(instance, i, j, 0);
             }
-            else 
+            else
             {
                 modifier_distance(instance, i, j, distance_euclidienne(instance.villes[i], instance.villes[j]));
             }
-            
         }
     }
 }
-
+/*
+But : lire un fichier .tsp et remplir l'instance correspondante.
+La fonction lit les informations importantes du fichier : le nom, la dimension,
+le type de distance, les coordonnées si elles existent, ou directement les distances.
+Si le fichier contient NODE_COORD_SECTION, on lit les coordonnées puis on calcule les distances.
+Si le fichier contient EDGE_WEIGHT_SECTION, on lit directement la matrice des distances.
+La fonction renvoie true si la lecture a réussi, false si le fichier n'a pas pu être ouvert.
+*/
 bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
 {
     std::ifstream fichier(nom_fichier);
@@ -146,6 +165,8 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
         }
         else if (mot == "NODE_COORD_SECTION")
         {
+            instance.possede_coordonnees = true;
+
             for (int i = 0; i < instance.nb_villes; ++i)
             {
                 fichier >> instance.villes[i].num
@@ -157,6 +178,9 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
         }
         else if (mot == "EDGE_WEIGHT_SECTION")
         {
+            // Ici ce sont des distances, pas des coordonnées.
+            // Donc on ne met PAS possede_coordonnees à true.
+
             for (int i = 0; i < instance.nb_villes; ++i)
             {
                 modifier_distance(instance, i, i, 0);
@@ -176,6 +200,8 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
         }
         else if (mot == "DISPLAY_DATA_SECTION")
         {
+            instance.possede_coordonnees = true;
+
             for (int i = 0; i < instance.nb_villes; ++i)
             {
                 fichier >> instance.villes[i].num
@@ -185,7 +211,7 @@ bool lire_instance(std::string nom_fichier, InstanceTSP & instance)
         }
         else if (mot == "EOF")
         {
-            //break or continue or rien?
+            break;
         }
     }
 
@@ -199,26 +225,29 @@ void afficher_instance(const InstanceTSP & instance)
     std::cout << "Nombre de villes : " << instance.nb_villes << std::endl;
     std::cout << "Type de distance : " << instance.type_distance << std::endl;
 
-    std::cout << std::endl;
-    std::cout << "Premieres villes :" << std::endl;
-
-    int limite_villes = instance.nb_villes;
-
-    if (limite_villes > 10)
+    if (instance.possede_coordonnees)
     {
-        limite_villes = 10;
-    }
+        std::cout << std::endl;
+        std::cout << "Premieres villes :" << std::endl;
 
-    for (int i = 0; i < limite_villes; ++i)
-    {
-        std::cout << instance.villes[i].num << " "
-                  << instance.villes[i].x << " "
-                  << instance.villes[i].y << std::endl;
-    }
+        int limite_villes = instance.nb_villes;
 
-    if (instance.nb_villes > 10)
-    {
-        std::cout << "... (" << instance.nb_villes - 10 << " autres villes)" << std::endl;
+        if (limite_villes > 10)
+        {
+            limite_villes = 10;
+        }
+
+        for (int i = 0; i < limite_villes; ++i)
+        {
+            std::cout << instance.villes[i].num << " "
+                      << instance.villes[i].x << " "
+                      << instance.villes[i].y << std::endl;
+        }
+
+        if (instance.nb_villes > 10)
+        {
+            std::cout << "... (" << instance.nb_villes - 10 << " autres villes)" << std::endl;
+        }
     }
 
     std::cout << std::endl;
@@ -232,10 +261,12 @@ void afficher_instance(const InstanceTSP & instance)
     }
 
     std::cout << "\t";
+
     for (int j = 0; j < limite; ++j)
     {
         std::cout << j << "\t";
     }
+
     std::cout << std::endl;
 
     for (int i = 0; i < limite; ++i)
