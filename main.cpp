@@ -120,22 +120,7 @@ void traiter_fichier(std::string nom_fichier)
 
     liberer_instance(instance);
 }
-/*
-int main()
-{
-    //traiter_fichier("bayg29.tsp");
 
-    traiter_fichier("att48.tsp");
-
-    //traiter_fichier("gr24.tsp");
-
-    //traiter_fichier("ch150.tsp");
-    
-    std::cout << std::endl;
-
-    return 0;
-}
-*/
 int main(int argc, char** argv)
 {
     if (argc < 2)
@@ -154,3 +139,4 @@ int main(int argc, char** argv)
 
     return 0;
 }
+//.\voyageur_de_commerce.exe att48.tsp
